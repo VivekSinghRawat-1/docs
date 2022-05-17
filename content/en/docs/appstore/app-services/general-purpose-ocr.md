@@ -98,21 +98,8 @@ To use the General Purpose OCR, first create an [import mapping](#mapping-file) 
 
 You need to use an [import mapping](/refguide/mapping-documents/#import-mappings) to populate extracted data into an entity. If necessary, you can further process the entity with [event handlers](/refguide/event-handlers/).
 
-1.  To create an import mapping, you need a XML schema(XSD). Perform the following steps to generate the XML structure:
-    1.  Log into the [Document Model Training](#document-model-training) application with your Mendix account.
-    2.  Click **Environment** to show the **Existing Models** list.
-    3.  Select your trained model. Make sure that the **Status** of the model is **Published**. Note down the **Model Id**. You will need it when you [extract data with the trained model ](#extraction-activity).
-    4.  Click **Download JSON Structure**. The **Generate JSON Structure** dialog box opens.
-    5.  Drag one of the sample images, which you used to train the document model, into the box where it says **Drag image files here**. You can also click **Browse** and select the file.
-
-        {{< figure src="/attachments/appstore/app-services/intelligent-document-service/sample-extraction-dialog-box.png" alt="Sample Extraction dialog box" >}}
-
-    6. Click **Download** to get the JSON structure.
-
-    {{% alert color="info" %}} Generated JSON structure file size cannot exceed 50MB. {{% /alert %}}
-    
-2.  To add the XML schema to your app, perform the following steps:
-    1.  In the **App Explorer** or **Project Explorer**, right-click the module or the folder where you want to add the generated XML schema .
+1.  To add the XML schema to your app, perform the following steps:
+    1.  In the **App Explorer** or **Project Explorer**, right-click the module or the folder where you want to add the generated XML schema.
     2.  From the pop-up menu, select **Add other** > [XML schema](/refguide/json-structures/).
 
         {{< figure src="/attachments/appstore/app-services/intelligent-document-service/json-structure.png" alt="json-structure" >}}
@@ -121,7 +108,7 @@ You need to use an [import mapping](/refguide/mapping-documents/#import-mappings
     4. In the **XML Snippet** box, add the content of the XML schema that you have generated. The system converts the XML snippet into a schema structure automatically. You will need this schema structure to create the import mapping.
     5. Click **OK** to save the changes and close the dialog box.
     
-3.  To create the import mapping, perform the following steps:
+2.  To create the import mapping, perform the following steps:
     1. In the **App Explorer** or **Project Explorer**, right-click the module or the folder where you want to add the import mapping.     
     2. From the pop-up menu, select **Add other** > **Import mapping**.
     3. In the **Add Import Mapping** dialog box, enter a **Name** for the import mapping and click **OK**. The **Select schema elements for import mapping** dialog box opens.    
@@ -131,7 +118,7 @@ You need to use an [import mapping](/refguide/mapping-documents/#import-mappings
     5. Click **OK** to save the changes and close the dialog box.
 
 
-### 4.3 Extracting the Data {#extraction-activity}
+### 4.2 Extracting the Data {#extraction-activity}
 
 1.  In the **Toolbox**, drag **General Purpose OCR** activity from the **Document Data Capture Service** category into your microflow.
 
@@ -150,7 +137,7 @@ You need to use an [import mapping](/refguide/mapping-documents/#import-mappings
 {{% alert color="info" %}} Optionally for further automation, add [event handlers](/refguide/event-handlers/) on the entity where you populate the extracted data. You can call your own microflow to process the extracted data when inserted into the entity. For example, you can modify, validate, and pass the data to next steps. By doing this, you can achieve full end-to-end automation.{{% /alert %}}
 
 
-### 4.4 Checking Statistics on the Usage Dashboard
+### 4.3 Checking Statistics on the Usage Dashboard
 
 The **Usage** dashboard shows the real-time statistics about the usage of an app service. Perform the following steps to check the real-time statistics:
 
