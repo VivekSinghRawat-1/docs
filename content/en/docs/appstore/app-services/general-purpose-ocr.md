@@ -71,7 +71,7 @@ Before you deploy an app, you should configure the binding keys in your app as f
 2. For each constant, double-click the constant, enter the key that you saved, and click **OK** to save the changes.
     
 
-## 4. Usage
+## 4 Usage
 
 To use the General Purpose OCR, first create an [import mapping](#mapping-file) that defines how to map extracted data from documents to an entity, and then include the [General Purpose OCR activity](#extraction-activity) in a microflow. This microflow should be set up to accept your input documents, extract data from the documents in bulk and then map the data to an entity using the import mapping that you created.
 
