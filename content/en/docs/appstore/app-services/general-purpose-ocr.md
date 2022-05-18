@@ -6,18 +6,18 @@ tags: ["Document Service", "AI", "ML", "OCR", "Industrial", "Manufacturing"]
 
 ## 1 Introduction
 
-The [General Purpose Optical Character Recognition](https://marketplace.mendix.com/link/component/118392) app service can help you extract text from images or PDF documents and get output in JSON and XML formats in bulk.
-
+The [General Purpose Optical Character Recognition](https://marketplace.mendix.com/link/component/118392) app service can help you extract text,table and barcode from images or PDF documents and get output in XML formats in bulk.
 
 ### 1.1 Features
 
-* Extract data(text,table and barcode) in XML format from images and pdf documents in bulk and map data to an entity
+* Extract data(text,table and barcode) in XML format from images and pdf documents in bulk and map data to an entity.
 * Support [Mendix SSO](/appstore/modules/mendix-sso/)
 
 ### 1.2 Limitation
 
-* Currently only supports images(in JPG, JPEG, PNG, BMP formats) and Pdf documents 
-* Each image file size cannot exceed 50 MB
+* Currently only supports images(in JPG, JPEG, PNG, BMP, TIFF formats) and Pdf documents. 
+* Total documents size cannot exceed 20 MB.
+* ABBYY FineReader Engine will not open images larger than 32512*32512 pixels.
 
 ### 1.3 Prerequisites
 
@@ -27,10 +27,6 @@ The [General Purpose Optical Character Recognition](https://marketplace.mendix.c
   * If images are taken using a digital camera, it is recommend to use at least a 5-megapixel sensor with auto focusing and flash disabling features, fit the page entirely within the camera frame, and distribute lighting evenly across the page to avoid any dark areas or shadows on the image
 
 ## 2 Installation
-
-1. Follow the instructions in [How to Use Marketplace Content in Studio Pro](/appstore/general/app-store-content/) to import the General Purpose OCR component into your application.
-
-2. In the **Toolbox**, drag the **General Purpose OCR** activity from the **Document Data Capture Services** category into your microflow.
 
 ### 2.1 Obtaining the Binding Keys {#obtain-keys}
 
@@ -60,39 +56,24 @@ A trial gives everyone in your company one-month access to the app service. To s
 7. Click **General Purpose OCR** to open the [service management dashboard](/appstore/general/app-store-overview/#service-management-dashboard).
 8. Follow the instructions in the [Creating Binding Keys](/appstore/general/app-store-overview/#creating-binding-keys) section in the *Marketplace Overview* to create binding keys. Save the binding keys somewhere safe. Later you will need to [configure the binding keys](#configure-keys) in your app.
 
+### 2.2 Installing the Component in Your App
 
-## 3 Configuration
+To download and install the General Purpose OCR app service in your app, follow the instructions in the [Importing Content from the App Explorer](/appstore/general/app-store-content/#import) section in *Use Marketplace Content in Studio Pro*. After the app service is installed, you can see it in the **App Explorer** and also in the **Document Data Capture Service** category in the **Toolbox**.
 
-1.  Double-click the **General Purpose OCR** activity to open the **General Purpose OCR** dialog window.
+## 3 Configuring the Binding Keys {#configure-keys}
 
-    {{< figure src="/attachments/appstore/app-services/general-purpose-ocr/general-purpose-ocr-dialog-window.png" >}}
+Before you deploy an app, you should configure the binding keys in your app as follows:
 
-2. Select an **Image List** which inherits from `System.Image`. You can also click **Edit** to edit it.
+1.  In the **App Explorer** or the **Project Explorer**, go to **GeneralPurposeOCR** > **Configurations**. **Access_Key** and **Secret_Key** are defined as constants.
 
-3. From the **Output format** drop-down list, select the format of output: **JSON** or **XML**.
+    {{< figure src="/attachments/appstore/app-services/intelligent-document-service/configurations-keys.png" alt="Keys under Configurations in a tree view" >}}
 
-4. If you want to execute the extraction action in a task queue, select **Execute this Java action in a Task Queue**, then click **Select** and select a task queue.
-
-   For more information, see [Task Queue](/refguide/task-queue/) (for Mendix version 9.0.3 and above) or [Process Queue](/appstore/modules/process-queue/) (for Mendix version below 9.0.3).
-
-5. To use the **Return Value**, select **Yes** and enter a **Variable name**.
-
-6. Click **OK** to save the changes and close the dialog window.
-
-7. To configure credential for the **General Purpose OCR** activity, add the following constants with values in your Mendix app:
-
-   * Access_Key
-   * Encryption_Key
-   * Secret_Key
-
-    {{< figure src="/attachments/appstore/app-services/general-purpose-ocr/configurations-keys.png" >}}
-   
-    {{% alert type="info" %}}Credentials are generated when you create binding keys on Marketplace. {{% /alert %}}
+2. For each constant, double-click the constant, enter the key that you saved, and click **OK** to save the changes.
     
 
 ## 4. Usage
 
-To use the General Purpose OCR, first create an [import mapping](#mapping-file) that defines how to map extracted data from images to an entity, and then include the [General Purpose OCR activity](#extraction-activity) in a microflow. This microflow should be set up to accept your input documents, extract data from the documents in bulk and then map the data to an entity using the import mapping that you created.
+To use the General Purpose OCR, first create an [import mapping](#mapping-file) that defines how to map extracted data from documents to an entity, and then include the [General Purpose OCR activity](#extraction-activity) in a microflow. This microflow should be set up to accept your input documents, extract data from the documents in bulk and then map the data to an entity using the import mapping that you created.
 
 ### 4.1 Creating an Import Mapping{#mapping-file}
 
@@ -124,13 +105,12 @@ You need to use an [import mapping](/refguide/mapping-documents/#import-mappings
 
     {{< figure src="/attachments/appstore/app-services/intelligent-document-service/intelligent-document-microflow.png" alt="intelligent-document-microflow" >}}
 
-2.  Create a list of image that inherits from `System.Image`. Images from where data are extracted should be passed as a list, as shown in the microflow above.
+2.  Create a list of documents that inherits from `System.FileDocument`. Documents from where data are extracted should be passed as a list, as shown in the microflow above.
 3.  Double-click the **General Purpose OCR** activity to open the dialog box.
 
     {{< figure src="/attachments/appstore/app-services/intelligent-document-service/intelligent-document-service-dialog-box.png" alt="Intelligent Document Service dialog box" >}}
 
-4. For **Model Id**, click **Edit** to enter the **Model Id** of your model.
-5. For **Image List**, click **Edit** to select the **Image List** which inherits from `System.Image`.
+4. For **Document List**, click **Edit** to select the **Document List** which inherits from `System.FileDocument`.
 6. For **Mapping**, **Select** the import mapping that you created to define how extracted data should be mapped into an entity.
 7. Click **OK** to save the changes and close the dialog box.
 
