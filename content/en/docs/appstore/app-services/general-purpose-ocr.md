@@ -6,7 +6,7 @@ tags: ["Document Service", "AI", "ML", "OCR", "Industrial", "Manufacturing"]
 
 ## 1 Introduction
 
-The [General Purpose Optical Character Recognition](https://marketplace.mendix.com/link/component/118392) app service can help you extract text,table and barcode from images or PDF documents and get output in XML formats in bulk.
+The [General Purpose Optical Character Recognition](https://marketplace.mendix.com/link/component/118392) app service can help you extract text, table and barcode from images or PDF documents and get output in XML formats in bulk.
 
 ### 1.1 Features
 
@@ -22,9 +22,6 @@ The [General Purpose Optical Character Recognition](https://marketplace.mendix.c
 ### 1.3 Prerequisites
 
 * This app service works best with Studio Pro 8 versions starting with [8.18.15](/releasenotes/studio-pro/8.18/#81815) and 9 versions starting with [9.0](/releasenotes/studio-pro/9.0/).
-* For optimal recognition results, make sure that documents with small fonts have high resolutions:
-  * If images are made using a scanner, it is recommended to use 300 dpi for texts in font size 10 pt or larger and 400-600 dpi for texts in font size 9 pt or smaller
-  * If images are taken using a digital camera, it is recommend to use at least a 5-megapixel sensor with auto focusing and flash disabling features, fit the page entirely within the camera frame, and distribute lighting evenly across the page to avoid any dark areas or shadows on the image
 
 ## 2 Installation
 
