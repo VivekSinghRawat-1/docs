@@ -99,7 +99,7 @@ There are three Output Fields users will have, i.e., Return type, Use return val
 9. For **Object name**, the user can type the response object name as **GPOExtractionResult**.
 
 
-### 4.3 Checking Statistics on the Usage Dashboard
+### 4.2 Checking Statistics on the Usage Dashboard
 
 The **Usage** dashboard shows real-time statistics about the usage of an app service. Perform the following steps to check the real-time statistics:
 
