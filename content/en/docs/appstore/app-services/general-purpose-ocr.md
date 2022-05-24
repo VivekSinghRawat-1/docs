@@ -93,6 +93,7 @@ Now, click **Select** to select the **Microflow** created by the user.
 
 **Output of Activity:**
 There are three Output Fields users will have, i.e., Return type, Use return value and Object name. 
+
 7. The **Return type** field is already selected as **GPO.GPOExtractionResult**.
 8. For **Use return value**, the user can select any one option from **Yes** and **No**.
 9. For **Object name**, the user can type the response object name as **GPOExtractionResult**.
