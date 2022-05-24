@@ -112,6 +112,7 @@ The result of data extraction is returned in the following format for Sync Behav
      “Behaviour” → “Blocking_Process”
      “Accepted”  → true (If data extraction is successful )
      “ExtractionResponse_GPOExtractionResult” → This association will contain the result of data extraction. 
+     
 2). **Async Behaviour (Non_Blocking_Process) :**
      “Behaviour” → “Non_Blocking_Process”
      “Accepted”  → true (If data extraction is successful)
