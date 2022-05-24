@@ -109,6 +109,7 @@ There are three Output Fields users will have, i.e., Return type, Use return val
 The result of data extraction is returned in the following format for Sync Behaviour and Async Behaviour.
 
 1). **Sync Behaviour (Blocking_Process) :**
+
      “Behaviour” → “Blocking_Process”
      
      “Accepted”  → true (If data extraction is successful )
@@ -126,13 +127,13 @@ Above 2 properties will be returned immediately.
 Once we receive the data extraction result from the Backend, we will call Microflow provided in the input “Extraction_Result_Microflow” and pass the extraction result in the input parameter of the Microflow.  
 
 * In case of any Exceptions, the response of the activity will be as follows in case of both Sync and Async Behaviour:
- 
- “Behaviour” → “Non_Blocking_Process” / “Blocking_Process”
- 
- “Accepted”  → false
- 
- “ExtractionResponse_GPOExtractionResult” → None/NULL
 
+     “Behaviour” → “Non_Blocking_Process” / “Blocking_Process”
+     
+     “Accepted”  → false
+     
+     “ExtractionResponse_GPOExtractionResult” → None/NULL
+     
 
 ### 4.2 Checking Statistics on the Usage Dashboard
 
