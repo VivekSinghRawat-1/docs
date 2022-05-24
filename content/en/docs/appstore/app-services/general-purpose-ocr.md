@@ -82,7 +82,7 @@ To use the General Purpose OCR, first create an [import mapping](#mapping-file) 
 
     {{< figure src="/attachments/appstore/app-services/intelligent-document-service/intelligent-document-service-dialog-box.png" alt="Intelligent Document Service dialog box" >}}
 
-**Input to Activity:**
+**Input Section:**
 
 There are three Input Fields users must select, i.e., Document List, Behaviour, and Extraction_Result_Microflow.
 
@@ -91,14 +91,39 @@ There are three Input Fields users must select, i.e., Document List, Behaviour, 
 Now, click **Edit** to select any one of the Behaviour out of **Blocking_Process** and **Non_Blocking_Process**. 
 6. For **Extraction_Result_Microflow**, this field will only be edited/selected in the case of Non_Blocking_Process Behavior chosen by the user.
 Now, click **Select** to select the **Microflow** created by the user.
+ * Once we receive the data extraction result from the Backend, we will call the Microflow provided in the input **“Extraction_Result_Microflow”** and pass the extraction result in the input parameter of the Microflow. 
 
-**Output of Activity:**
+**Output Section:**
 
 There are three Output Fields users will have, i.e., Return type, Use return value and Object name. 
 
 7. The **Return type** field is already selected as **GPO.GPOExtractionResult**.
 8. For **Use return value**, the user can select any one option from **Yes** and **No**.
 9. For **Object name**, the user can type the response object name as **GPOExtractionResult**.
+
+
+**The output of the activity:**
+
+* Object of GPOExtractionResult entity :
+
+The result of data extraction is returned in the following format for Sync Behaviour and Async Behaviour.
+
+1). **Sync Behaviour (Blocking_Process) :**
+     “Behaviour” → “Blocking_Process”
+     “Accepted”  → true (If data extraction is successful )
+     “ExtractionResponse_GPOExtractionResult” → This association will contain the result of data extraction. 
+2). **Async Behaviour (Non_Blocking_Process) :**
+     “Behaviour” → “Non_Blocking_Process”
+     “Accepted”  → true (If data extraction is successful)
+     
+Above 2 properties will be returned immediately.
+
+Once we receive the data extraction result from the Backend, we will call Microflow provided in the input “Extraction_Result_Microflow” and pass the extraction result in the input parameter of the Microflow.  
+
+* In case of any Exceptions, the response of the activity will be as follows in case of both Sync and Async Behaviour:
+ “Behaviour” → “Non_Blocking_Process” / “Blocking_Process”
+ “Accepted”  → false
+ “ExtractionResponse_GPOExtractionResult” → None/NULL
 
 
 ### 4.2 Checking Statistics on the Usage Dashboard
