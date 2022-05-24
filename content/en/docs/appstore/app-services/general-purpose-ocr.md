@@ -83,15 +83,19 @@ To use the General Purpose OCR, first create an [import mapping](#mapping-file) 
     {{< figure src="/attachments/appstore/app-services/intelligent-document-service/intelligent-document-service-dialog-box.png" alt="Intelligent Document Service dialog box" >}}
 
 **Input to Activity:**
+
 There are three Input Fields users must select, i.e., Document List, Behaviour, and Extraction_Result_Microflow.
 
 4. For **Document List**, click **Edit** to select the **Document List** which inherits from `System.FileDocument`.
 5. For **Behaviour**, we have two options sync & async in the same activity.  
+
 Now, click **Edit** to select any one of the Behaviour out of **Blocking_Process** and **Non_Blocking_Process**. 
 6. For **Extraction_Result_Microflow**, this field will only be edited/selected in the case of Non_Blocking_Process Behavior chosen by the user.
+
 Now, click **Select** to select the **Microflow** created by the user.
 
 **Output of Activity:**
+
 There are three Output Fields users will have, i.e., Return type, Use return value and Object name. 
 
 7. The **Return type** field is already selected as **GPO.GPOExtractionResult**.
