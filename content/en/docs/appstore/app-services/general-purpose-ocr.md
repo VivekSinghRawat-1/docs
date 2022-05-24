@@ -82,11 +82,20 @@ To use the General Purpose OCR, first create an [import mapping](#mapping-file) 
 
     {{< figure src="/attachments/appstore/app-services/intelligent-document-service/intelligent-document-service-dialog-box.png" alt="Intelligent Document Service dialog box" >}}
 
-4. For **Document List**, click **Edit** to select the **Document List** which inherits from `System.FileDocument`.
-6. For **Mapping**, **Select** the import mapping that you created to define how extracted data should be mapped into an entity.
-7. Click **OK** to save the changes and close the dialog box.
+**Input to Activity:**
+There are three Input Fields users must select, i.e., Document List, Behaviour, and Extraction_Result_Microflow.
 
-{{% alert color="info" %}} Optionally for further automation, add [event handlers](/refguide/event-handlers/) on the entity where you populate the extracted data. You can call your own microflow to process the extracted data when inserted into the entity. For example, you can modify, validate, and pass the data to next steps. By doing this, you can achieve full end-to-end automation.{{% /alert %}}
+4. For **Document List**, click **Edit** to select the **Document List** which inherits from `System.FileDocument`.
+5. For **Behaviour**, we have two options sync & async in the same activity.  
+Now, click **Edit** to select any one of the Behaviour out of **Blocking_Process** and **Non_Blocking_Process**. 
+6. For **Extraction_Result_Microflow**, this field will only be edited/selected in the case of Non_Blocking_Process Behavior chosen by the user.
+Now, click **Select** to select the **Microflow** created by the user.
+
+**Output of Activity:**
+There are three Output Fields users will have, i.e., Return type, Use return value and Object name. 
+7. The **Return type** field is already selected as **GPO.GPOExtractionResult**.
+8. For **Use return value**, the user can select any one option from **Yes** and **No**.
+9. For **Object name**, the user can type the response object name as **GPOExtractionResult**.
 
 
 ### 4.3 Checking Statistics on the Usage Dashboard
