@@ -87,9 +87,9 @@ To use the General Purpose OCR, first create an [import mapping](#mapping-file) 
 There are three Input Fields users must select, i.e., Document List, Behaviour, and Extraction_Result_Microflow.
 
 4. For **Document List**, click **Edit** to select the **Document List** which inherits from `System.FileDocument`.
-5. For **Behaviour**, we have two options sync & async in the same activity.  
-Now, click **Edit** to select any one of the Behaviour out of **Blocking_Process** and **Non_Blocking_Process**. 
-6. For **Extraction_Result_Microflow**, this field will only be edited/selected in the case of Non_Blocking_Process Behavior chosen by the user.
+5. For **Process Behaviour**, we have two options sync & async in the same activity.  
+Now, click **Edit** to select any one of the Behaviour out of **Blocking** and **NonBlocking**. 
+6. For **Extraction Result Microflow**, this field will only be edited/selected in the case of **NonBlocking Process** Behavior chosen by the user.
 Now, click **Select** to select the **Microflow** created by the user.
  * Once we receive the data extraction result from the Backend, we will call the Microflow provided in the input **“Extraction_Result_Microflow”** and pass the extraction result in the input parameter of the Microflow. 
 
@@ -100,6 +100,19 @@ There are three Output Fields users will have, i.e., Return type, Use return val
 7. The **Return type** field is already selected as **GPO.GPOExtractionResult**.
 8. For **Use return value**, the user can select any one option from **Yes** and **No**.
 9. For **Object name**, the user can type the response object name as **GPOExtractionResult**.
+
+**Extractions Response:**
+
+Extraction Response contains three things **CreationDate, Operation and Status**.
+
+The **CreationDate** of **"String"** type, **Operation** is **"dataExtraction[GPO]," **and **Status** of **"String"** type.
+
+The Status can be of four types based on the data extraction performed in the Backend:
+
+ **IN_PROGRESS:** When data Extraction is in progress. 
+ **PARTIALLY_COMPLETED:** When some of the documents are extracted and the rest of the documents are aborted.
+ **COMPLETED:** When all the documents are extracted successfully.
+ **FAILED:** When all the documents are aborted. 
 
 
 **The output of the activity:**
