@@ -105,14 +105,17 @@ There are three Output Fields users will have, i.e., Return type, Use return val
 
 Extraction Response contains three things **CreationDate, Operation and Status**.
 
-The **CreationDate** of **"String"** type, **Operation** is **"dataExtraction[GPO]," **and **Status** of **"String"** type.
+The **CreationDate** of **"String"** type, **Operation** is **"dataExtraction[GPO],"** and **Status** of **"String"** type.
 
 The Status can be of four types based on the data extraction performed in the Backend:
 
- **IN_PROGRESS:** When data Extraction is in progress. 
- **PARTIALLY_COMPLETED:** When some of the documents are extracted and the rest of the documents are aborted.
- **COMPLETED:** When all the documents are extracted successfully.
- **FAILED:** When all the documents are aborted. 
+ **1).** **IN_PROGRESS:** When data Extraction is in progress. 
+ 
+ **2).** **PARTIALLY_COMPLETED:** When some of the documents are extracted and the rest of the documents are aborted.
+ 
+ **3).** **COMPLETED:** When all the documents are extracted successfully.
+ 
+ **4).** **FAILED:** When all the documents are aborted. 
 
 
 **The output of the activity:**
