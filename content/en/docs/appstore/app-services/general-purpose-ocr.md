@@ -137,10 +137,10 @@ The **CreationDate** of **"String"** type, **Operation** is **"dataExtraction[GP
 
 The Status can be of four types based on the data extraction performed in the Backend:
     
-    **a).** **IN_PROGRESS:** When data Extraction is in progress. 
-    **b).** **PARTIALLY_COMPLETED:** When some of the documents are extracted and the rest of the documents are aborted.
-    **c).** **COMPLETED:** When all the documents are extracted successfully.
-    **d).** **FAILED:** When all the documents are aborted. 
+    a). IN_PROGRESS: When data Extraction is in progress. 
+    b). PARTIALLY_COMPLETED: When some of the documents are extracted and the rest of the documents are aborted.
+    c). COMPLETED: When all the documents are extracted successfully.
+    d). FAILED: When all the documents are aborted. 
 
 
 **The output of the activity:**
