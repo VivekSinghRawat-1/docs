@@ -82,27 +82,53 @@ To use the General Purpose OCR, first create an [import mapping](#mapping-file) 
 
     {{< figure src="/attachments/appstore/app-services/intelligent-document-service/intelligent-document-service-dialog-box.png" alt="Intelligent Document Service dialog box" >}}
 
+
+There are two components of the GPO Activity, i.e., **General Purpose OCR** and **General Purpose OCR  In Background**. 
+
+**General Purpose OCR** component will have a Sync Behaviour, which will directly get the data-extraction result in the response.
+**General Purpose OCR  In Background** component will have an Async Behaviour, which will provide an input Microflow which will further take the response of the data-extraction result in the parameter and will use that further.
+
+
+### 4.1.1 General Purpose OCR
+
 **Input Section:**
 
-There are three Input Fields users must select, i.e., Document List, Behaviour, and Extraction_Result_Microflow.
+There are only one Input Fields users must select, i.e., Document List.
 
-4. For **Document List**, click **Edit** to select the **Document List** which inherits from `System.FileDocument`.
-5. For **Process Behaviour**, we have two options sync & async in the same activity.  
-Now, click **Edit** to select any one of the Behaviour out of **Blocking** and **NonBlocking**. 
-6. For **Extraction Result Microflow**, this field will only be edited/selected in the case of **NonBlocking Process** Behavior chosen by the user.
-Now, click **Select** to select the **Microflow** created by the user.
- * Once we receive the data extraction result from the Backend, we will call the Microflow provided in the input **“Extraction_Result_Microflow”** and pass the extraction result in the input parameter of the Microflow. 
+1. For **Document List**, click **Edit** to select the **Document List** which inherits from `System.FileDocument`.
+
 
 **Output Section:**
 
 There are three Output Fields users will have, i.e., Return type, Use return value and Object name. 
 
-7. The **Return type** field is already selected as **GPO.GPOExtractionResult**.
-8. For **Use return value**, the user can select any one option from **Yes** and **No**.
-9. For **Object name**, the user can type the response object name as **GPOExtractionResult**.
+1. The **Return type** field is already selected as **GPO.ExtractionResult**.
+2. For **Use return value**, the user can select any one option from **Yes** and **No**.
+3. For **Object name**, the user can type the response object name as **GPOExtractionResult**.
 
 
-**Extractions Response:**
+### 4.1.2 General Purpose OCR In Background
+
+**Input Section:**
+
+There are three Input Fields users must select, i.e., Document List, Extraction Result Microflow, and Microflow parameter name.
+
+1. For **Document List**, click **Edit** to select the **Document List** which inherits from `System.FileDocument`.
+2. For **Extraction Result Microflow**, this field will only be edited/selected in the case of **NonBlocking Process** Behavior chosen by the user.
+Now, click **Select** to select the **Microflow** created by the user.
+ * Once we receive the data extraction result from the Backend, we will call the Microflow provided in the input **“Extraction_Result_Microflow”** and pass the extraction result in the input parameter of the Microflow. 
+3. For **Microflow parameter name**, click **Edit** and type a string for Microflow perameter name.
+
+**Output Section:**
+
+There are three Output Fields users will have, i.e., Return type, Use return value and Object name. 
+
+1. The **Return type** field is already selected as **GPO.ExtractionResult**.
+2. For **Use return value**, the user can select any one option from **Yes** and **No**.
+3. For **Object name**, the user can type the response object name as **GPOExtractionResult_2**.
+
+
+**Extraction Response:**
 
 Extraction Response contains three things **CreationDate, Operation and Status**.
 
@@ -110,15 +136,11 @@ The **CreationDate** of **"String"** type, **Operation** is **"dataExtraction[GP
 
 
 The Status can be of four types based on the data extraction performed in the Backend:
-
-  **a).** **IN_PROGRESS:** When data Extraction is in progress. 
- 
-  **b).** **PARTIALLY_COMPLETED:** When some of the documents are extracted and the rest of the documents are aborted.
- 
-  **c).** **COMPLETED:** When all the documents are extracted successfully.
- 
-  **d).** **FAILED:** When all the documents are aborted. 
-
+    
+    **a).** **IN_PROGRESS:** When data Extraction is in progress. 
+    **b).** **PARTIALLY_COMPLETED:** When some of the documents are extracted and the rest of the documents are aborted.
+    **c).** **COMPLETED:** When all the documents are extracted successfully.
+    **d).** **FAILED:** When all the documents are aborted. 
 
 
 **The output of the activity:**
