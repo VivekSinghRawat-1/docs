@@ -101,21 +101,24 @@ There are three Output Fields users will have, i.e., Return type, Use return val
 8. For **Use return value**, the user can select any one option from **Yes** and **No**.
 9. For **Object name**, the user can type the response object name as **GPOExtractionResult**.
 
+
 **Extractions Response:**
 
 Extraction Response contains three things **CreationDate, Operation and Status**.
 
 The **CreationDate** of **"String"** type, **Operation** is **"dataExtraction[GPO],"** and **Status** of **"String"** type.
 
+
 The Status can be of four types based on the data extraction performed in the Backend:
 
- **1).** **IN_PROGRESS:** When data Extraction is in progress. 
+  **a).** **IN_PROGRESS:** When data Extraction is in progress. 
  
- **2).** **PARTIALLY_COMPLETED:** When some of the documents are extracted and the rest of the documents are aborted.
+  **b).** **PARTIALLY_COMPLETED:** When some of the documents are extracted and the rest of the documents are aborted.
  
- **3).** **COMPLETED:** When all the documents are extracted successfully.
+  **c).** **COMPLETED:** When all the documents are extracted successfully.
  
- **4).** **FAILED:** When all the documents are aborted. 
+  **d).** **FAILED:** When all the documents are aborted. 
+
 
 
 **The output of the activity:**
