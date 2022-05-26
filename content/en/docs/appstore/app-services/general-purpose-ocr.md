@@ -6,7 +6,7 @@ tags: ["Document Service", "AI", "ML", "OCR", "Industrial", "Manufacturing"]
 
 ## 1 Introduction
 
-The [General Purpose Optical Character Recognition](https://marketplace.mendix.com/link/component/118392) app service can help you extract text, tables, and barcodes from images or PDF documents and get output in XML formats in bulk.
+The [General Purpose Optical Character Recognition](https://marketplace.mendix.com/link/component/118392) App Service can help you extract text, tables, and barcodes from images or PDF documents and get output in XML formats in bulk.
 
 ### 1.1 Features
 
@@ -17,27 +17,27 @@ The [General Purpose Optical Character Recognition](https://marketplace.mendix.c
 
 * Currently only supports images(in JPG, JPEG, PNG, BMP, TIFF formats) and Pdf documents. 
 * Total documents size cannot exceed 20 MB.
-* ABBYY FineReader Engine will not open images larger than 32512*32512 pixels.
+* The image size should not be larger than 32512*32512 pixels.
 
 ### 1.3 Prerequisites
 
-* This app service works best with Studio Pro 8 versions starting with [8.18.15](/releasenotes/studio-pro/8.18/#81815) and 9 versions starting with [9.0](/releasenotes/studio-pro/9.0/).
+* This App Service works best with Studio Pro 8 versions starting with [8.18.15](/releasenotes/studio-pro/8.18/#81815) and 9 versions starting with [9.0](/releasenotes/studio-pro/9.0/).
 
 ## 2 Installation
 
 ### 2.1 Obtaining the Binding Keys {#obtain-keys}
 
-The General Purpose OCR is a premium Mendix product subject to a purchase and subscription fee. To successfully use this app service in your app, first you need to start a subscription or a trial to get the binding keys.
+The General Purpose OCR is a premium Mendix product subject to a purchase and subscription fee. To successfully use this App Service in your app, first you need to start a subscription or a trial to get the binding keys.
 
 #### 2.1.1 Starting a Trial
 
-A trial gives everyone in your company one-month of access to the app service. To start a trial, perform the following steps:
+A trial gives everyone in your company access to the App Service. To start a trial, perform the following steps:
 
 1. Go to the [General Purpose OCR](need to edit: https://marketplace.mendix.com/link/component/118388) page in the Marketplace.
-2. Click **Try for Free** to open the **Start Your Free Trial** page. Here you can see the **Trial Details** for the app service.
+2. Click **Try for Free** to open the **Start Your Free Trial** page. Here you can see the **Trial Details** for the App Service.
 3. Select the check box to agree to the **Terms & Conditions**.
 4. Click **Enable Trial**. A page opens and confirms that your request has been received.
-5. Wait until your request is processed. It can take more than at least 15 minutes for the system to process your request. After your request is processed, you will receive an email that says the app service is ready to be used. 
+5. Wait until your request is processed. It can take more than at least 15 minutes for the system to process your request. After your request is processed, you will receive an email that says the App Service is ready to be used. 
 6. Click the link in the email to go to the [My Subscriptions](/appstore/general/app-store-overview/#my-subscriptions) page and log in there. This page shows all the products that you have trials for.
 7. Click **General Purpose OCR** to open the [service management dashboard](/appstore/general/app-store-overview/#service-management-dashboard).
 8. Follow the instructions in the [Creating Binding Keys](/appstore/general/app-store-overview/#creating-binding-keys) section in the *Marketplace Overview* to create binding keys. Save the binding keys somewhere safe. Later you will need to [configure the binding keys](#configure-keys) in your app.
@@ -48,14 +48,14 @@ A trial gives everyone in your company one-month of access to the app service. T
 2. Click **Subscribe** to start a subscription.
 3. Select your subscription plan.
 4. Fill in **Technical Owner** information (**First Name**, **Last Name**, **Email Address**), billing account information, payments and other required information and then place the order. A page opens and confirms that your request has been received.
-5. Wait until your request is processed. It can take more than 15 minutes for the system to process your request. After your request is processed, the Technical Owner will receive an email that says the app service is ready to be used.
+5. Wait until your request is processed. It can take more than 15 minutes for the system to process your request. After your request is processed, the Technical Owner will receive an email that says the App Service is ready to be used.
 6. Click the link in the email to go to the [Company Subscriptions](/appstore/general/app-store-overview/#company-subscriptions) page and log in there. This page gives an overview of all the subscriptions of your organization.
 7. Click **General Purpose OCR** to open the [service management dashboard](/appstore/general/app-store-overview/#service-management-dashboard).
 8. Follow the instructions in the [Creating Binding Keys](/appstore/general/app-store-overview/#creating-binding-keys) section in the *Marketplace Overview* to create binding keys. Save the binding keys somewhere safe. Later you will need to [configure the binding keys](#configure-keys) in your app.
 
 ### 2.2 Installing the Component in Your App
 
-To download and install the General Purpose OCR app service in your app, follow the instructions in the [Importing Content from the App Explorer](/appstore/general/app-store-content/#import) section in *Use Marketplace Content in Studio Pro*. After the app service is installed, you can see it in the **App Explorer** and also in the **Document Data Capture Service** category in the **Toolbox**.
+To download and install the General Purpose OCR App Service in your app, follow the instructions in the [Importing Content from the App Explorer](/appstore/general/app-store-content/#import) section in *Use Marketplace Content in Studio Pro*. After the App Service is installed, you can see it in the **App Explorer** and also in the **Document Data Capture Service** category in the **Toolbox**.
 
 ## 3 Configuring the Binding Keys {#configure-keys}
 
@@ -178,7 +178,7 @@ Once we receive the data extraction result from the Backend, we will call Microf
 
 ### 4.2 Checking Statistics on the Usage Dashboard
 
-The **Usage** dashboard shows real-time statistics about the usage of an app service. Perform the following steps to check the real-time statistics:
+The **Usage** dashboard shows real-time statistics about the usage of an App Service. Perform the following steps to check the real-time statistics:
 
 1. Log into the Marketplace.
 2. Go to **My Marketplace** and then do as follows:
