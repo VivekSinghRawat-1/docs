@@ -30,8 +30,7 @@ Sample document:
 
 ![image](https://user-images.githubusercontent.com/105198284/171130138-5769c892-9b6b-4f6d-b912-e836803bf84d.png)
 
-The ExtractionResponse entity will contain the status of the response. The response can be  IN_PROGRESS, COMPLETED, or FAILED. Then the Extracteddocument entity contains DocumentId, DocumentName and Content. The Content is divided into multiple data. Page entity will contain a single page element. After that, the Block entity will contain the block type. Block type can be Text, Table and Barcode. If the Blocktype is Text, then the Paragraph entity will contain the multiple text lines.
-
+The ExtractionResponse entity will contain the status of the response. The response can be  IN_PROGRESS, COMPLETED, or FAILED. Then the Extracteddocument entity contains DocumentId, DocumentName and Content. The Content is divided into multiple data. Page entity will contain a single page element. After that, the Block entity will contain the block type. Block type can be Text, Table and Barcode. In above example Blocktype is Text, so the Paragraph entity will contain the multiple text lines.
 
 ## 2 Installation
 
@@ -93,97 +92,57 @@ To use the General Purpose OCR, first create an [import mapping](#mapping-file) 
     {{< figure src="/attachments/appstore/app-services/intelligent-document-service/intelligent-document-service-dialog-box.png" alt="Intelligent Document Service dialog box" >}}
 
 
-There are two components of the GPO Activity, i.e., **General Purpose OCR** and **General Purpose OCR  In Background**. 
+There are two separate Java actions(Activities) in a single GPO module for sync and async behaviour, i.e., **General Purpose OCR** and **General Purpose OCR  In Background**. 
+Create 2 separate Java actions(Activities) 
 
 **General Purpose OCR** component will have a Sync Behaviour, which will directly get the data-extraction result in the response.
 **General Purpose OCR  In Background** component will have an Async Behaviour, which will provide an input Microflow which will further take the response of the data-extraction result in the parameter and will use that further.
 
 
-### 4.1.1 General Purpose OCR
+### 4.1.1 General Purpose OCR(Sync Behaviour)
 
 **Input Section:**
 
 There are only one Input Fields users must select, i.e., Document List.
 
-1. For **Document List**, click **Edit** to select the **Document List** which inherits from `System.FileDocument`.
+1.  For **Document List**, click **Edit** to select the **Document List** which inherits from `System.FileDocument`.
+   List of FileDocument type object for data extraction.
 
 
 **Output Section:**
 
 There are three Output Fields users will have, i.e., Return type, Use return value and Object name. 
 
-1. The **Return type** field is already selected as **GPO.ExtractionResult**.
-2. For **Use return value**, the user can select any one option from **Yes** and **No**.
-3. For **Object name**, the user can type the response object name as **GPOExtractionResult**.
+1.  The **Return type** field is already selected as **GPO.ExtractionResponse**.
+2.  For **Use return value**, the user can select any one option from **Yes** and **No** based on whether the user wants to use the response result or not.
+**Note:** Boolean value true/false, to indicated that we have accepted/declined the request for data extraction. 
+3.  For **Object name**, the user can type the response object of **ExtractionResponse** entity. 
+**Note:** Maker need to check status attribute of this entity and based on that need to retrieve extraction result from associated entities.
+     Possible values for status are as follows,
+     - IN_PROGRESS
+     - COMPLETED
+     - FAILED
 
-
-### 4.1.2 General Purpose OCR In Background
+### 4.1.2 General Purpose OCR In Background(Async Behaviour)
 
 **Input Section:**
 
-There are three Input Fields users must select, i.e., Document List, Extraction Result Microflow, and Microflow parameter name.
+There are three Input Fields users must select, i.e., Document List, Extraction Result Microflow, and Microflow Input Parameter.
 
-1. For **Document List**, click **Edit** to select the **Document List** which inherits from `System.FileDocument`.
-2. For **Extraction Result Microflow**, this field will only be edited/selected in the case of **NonBlocking Process** Behavior chosen by the user.
-Now, click **Select** to select the **Microflow** created by the user.
- * Once we receive the data extraction result from the Backend, we will call the Microflow provided in the input **“Extraction_Result_Microflow”** and pass the extraction result in the input parameter of the Microflow. 
-3. For **Microflow parameter name**, click **Edit** and type a string for Microflow perameter name.
+1.  For **Document List**, click **Edit** to select the **Document List** which inherits from `System.FileDocument`.
+2.  For **Extraction Result Microflow**, click **Select** to select the **Microflow** created by the user.
+**Note:** We will call this microflow internally from our java action once we receive extraction result from backend and pass this extraction result as parameter to this selected microflow.  
+3.  For **Microflow Input Parameter**, click **Edit** and type a string for Microflow perameter name.
+**Note:** This should be name of the parameter of object type "GPO.ExtractionResponse" present in "Extraction Result Microflow".
 
 **Output Section:**
 
-There are three Output Fields users will have, i.e., Return type, Use return value and Object name. 
+There are three Output Fields users will have, i.e., Return type, Use return value and Variable name. 
 
-1. The **Return type** field is already selected as **GPO.ExtractionResult**.
-2. For **Use return value**, the user can select any one option from **Yes** and **No**.
-3. For **Object name**, the user can type the response object name as **GPOExtractionResult_2**.
-
-
-**Extraction Response:**
-
-Extraction Response contains three things **CreationDate, Operation and Status**.
-
-The **CreationDate** of **"String"** type, **Operation** is **"dataExtraction[GPO],"** and **Status** of **"String"** type.
-
-
-The Status can be of four types based on the data extraction performed in the Backend:
-    
-    a). IN_PROGRESS: When data Extraction is in progress. 
-    b). PARTIALLY_COMPLETED: When some of the documents are extracted and the rest of the documents are aborted.
-    c). COMPLETED: When all the documents are extracted successfully.
-    d). FAILED: When all the documents are aborted. 
-
-
-**The output of the activity:**
-
-* Object of GPOExtractionResult entity :
-
-The result of data extraction is returned in the following format for Sync Behaviour and Async Behaviour.
-
-1). **Sync Behaviour (Blocking_Process) :**
-
-     “Behaviour” → “Blocking_Process”
-     
-     “Accepted”  → true (If data extraction is successful )
-     
-     “ExtractionResponse_GPOExtractionResult” → This association will contain the result of data extraction. 
-     
-2). **Async Behaviour (Non_Blocking_Process) :**
-     
-     “Behaviour” → “Non_Blocking_Process”
-     
-     “Accepted”  → true (If data extraction is successful)
-     
-Above 2 properties will be returned immediately.
-
-Once we receive the data extraction result from the Backend, we will call Microflow provided in the input “Extraction_Result_Microflow” and pass the extraction result in the input parameter of the Microflow.  
-
-* In case of any Exceptions, the response of the activity will be as follows in case of both Sync and Async Behaviour:
-
-     “Behaviour” → “Non_Blocking_Process” / “Blocking_Process”
-     
-     “Accepted”  → false
-     
-     “ExtractionResponse_GPOExtractionResult” → None/NULL
+1. The **Return type** field is already selected as **Boolean**.
+Note: Boolean value true/false, to indicated that we have accepted/declined the request for data extraction. 
+2. For **Use return value**, the user can select any option from **Yes** and **No** based on whether the user wants to use the response result or not.
+3. For **Variable name**, the user can type the response object name as **ReturnValueName**.
      
 
 ### 4.2 Checking Statistics on the Usage Dashboard
