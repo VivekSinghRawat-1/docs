@@ -7,6 +7,7 @@ tags: ["Document Service", "AI", "ML", "OCR", "Industrial", "Manufacturing"]
 ## 1 Introduction
 
 The [General Purpose Optical Character Recognition](https://marketplace.mendix.com/link/component/118392) App Service can help you extract text, tables, and barcodes from images or PDF documents and get output in XML formats in bulk.
+In the backend, GPO takes a list of documents in Base64 format. These documents are further converted into XML format by Abbyy Fine Reader Engine SDK then this XML is transformed into simplified XML using an XSLT transformation. This simplified XML further will be used by the Mendix activity.
 
 ### 1.1 Features
 
@@ -22,6 +23,15 @@ The [General Purpose Optical Character Recognition](https://marketplace.mendix.c
 ### 1.3 Prerequisites
 
 * This App Service works best with Studio Pro 8 versions starting with [8.18.15](/releasenotes/studio-pro/8.18/#81815) and 9 versions starting with [9.0](/releasenotes/studio-pro/9.0/).
+
+### 1.4 How the data stored in prepackaged domain model
+
+Sample document:
+
+![image](https://user-images.githubusercontent.com/105198284/171130138-5769c892-9b6b-4f6d-b912-e836803bf84d.png)
+
+The ExtractionResponse entity will contain the status of the response. The response can be  IN_PROGRESS, COMPLETED, or FAILED. Then the Extracteddocument entity contains DocumentId, DocumentName and Content. The Content is divided into multiple data. Page entity will contain a single page element. After that, the Block entity will contain the block type. Block type can be Text, Table and Barcode. If the Blocktype is Text, then the Paragraph entity will contain the multiple text lines.
+
 
 ## 2 Installation
 
