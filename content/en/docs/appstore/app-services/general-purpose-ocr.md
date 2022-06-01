@@ -31,6 +31,8 @@ Sample document:
 
 ![image](https://user-images.githubusercontent.com/105198284/171130138-5769c892-9b6b-4f6d-b912-e836803bf84d.png)
 
+![image](https://user-images.githubusercontent.com/105198284/171337308-c3e462ad-73e8-46bb-a9d6-93295e5e92a8.png)
+
 The ExtractionResponse entity will contain the status of the response. The response can be  IN_PROGRESS, COMPLETED, or FAILED. Then the Extracteddocument entity contains DocumentId, DocumentName and Content. The Content is divided into multiple data. Page entity will contain a single page element. After that, the Block entity will contain the block type. Block type can be Text, Table and Barcode. In above example Blocktype is Text, so the Paragraph entity will contain the multiple text lines.
 
 ## 2 Installation
@@ -102,6 +104,9 @@ Create 2 separate Java actions(Activities)
 
 ### 4.1.1 General Purpose OCR(Sync Behaviour)
 
+![image](https://user-images.githubusercontent.com/105198284/171335877-1b347949-7061-4d58-b5ef-1bf609a983fd.png)
+
+
 **Input Section:**
 
 There are only one Input Fields users must select, i.e., Document List.
@@ -125,6 +130,9 @@ There are three Output Fields users will have, i.e., Return type, Use return val
      - FAILED
 
 ### 4.1.2 General Purpose OCR In Background(Async Behaviour)
+
+![image](https://user-images.githubusercontent.com/105198284/171335932-64636576-2203-4bdb-b8d2-ee6e995dd7d0.png)
+
 
 **Input Section:**
 
