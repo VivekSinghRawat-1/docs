@@ -31,12 +31,28 @@ Sample document:
 ![image](https://user-images.githubusercontent.com/105198284/171408053-acedb229-3cf1-48de-87d7-8c3ea41f53ff.png)
 
 
-
-Domain Model:
+Document model for GPO Extraction Result:
 
 ![image](https://user-images.githubusercontent.com/105198284/171337308-c3e462ad-73e8-46bb-a9d6-93295e5e92a8.png)
 
-The ExtractionResponse entity will contain the status of the response. The response can be  IN_PROGRESS, COMPLETED, or FAILED. Then the Extracteddocument entity contains DocumentId, DocumentName and Content. The Content is divided into multiple data. Page entity will contain a single page element. After that, the Block entity will contain the block type. Block type can be Text, Table and Barcode. In above example Blocktype is Text, so the Paragraph entity will contain the multiple text lines.
+
+The ExtractionResponse(Entity) will be created automatically for storing the response from the backend API call. The ExtractionResponse entity contains Status(String) and Output(Entity).
+
+The ExtractionResponse entity contains the Response Status(string); the Status can be  IN_PROGRESS, COMPLETED, or FAILED. 
+
+The Output Entity is further divided into two domains Aborted and Extracted.
+
+The documents which are not successfully extracted in the backend API call due to some error/exception will be stored inside the AbortedDocument entity. The AbortedDocument(Entity) stores the DocumentId(String) and DocumentName(String) of the corresponding aborted documents.
+
+The documents which are successfully extracted in the backend API call will be stored inside the ExtractedDocument entity. The ExtractedDocument entity contains DocumentId(String), DocumentName(String) and  Content(Entity).
+
+The Content is basically in XML format. 
+
+Firstly, the document is divided into multiple pages. So we have the Page(Entity), where each page can contain multiple Blocks. Therefore we have Block(Entity), which contains BlockType(String). A Block can be of three types Text, Table and Barcode. Based on the Block type, the document will be further divided.
+
+If the Block is Text and Barcode, it will go to Text(Entity) and then goto Paragraph(Entity). A paragraph can have multiple lines. So, Paragraph(Entity) have LineContent(String).
+
+Otherwise, in the case of the Block is of Table type. It will be divided into multiple rows. So, it will go to Row(Entity). Each row can have multiple cells and text. So, we have CellText(Entity). Each cell will contain multiple paragraphs, so we have CellParagraph_CellText(Entity). A paragraph can have multiple lines. Therefore, CellParagraph_CellText(Entity) have LineContent(String). This Linecontent will contain the actual data.
 
 ## 2 Installation
 
