@@ -31,6 +31,8 @@ Sample document:
 
 ![image](https://user-images.githubusercontent.com/105198284/171130138-5769c892-9b6b-4f6d-b912-e836803bf84d.png)
 
+Domain Model:
+
 ![image](https://user-images.githubusercontent.com/105198284/171337308-c3e462ad-73e8-46bb-a9d6-93295e5e92a8.png)
 
 The ExtractionResponse entity will contain the status of the response. The response can be  IN_PROGRESS, COMPLETED, or FAILED. Then the Extracteddocument entity contains DocumentId, DocumentName and Content. The Content is divided into multiple data. Page entity will contain a single page element. After that, the Block entity will contain the block type. Block type can be Text, Table and Barcode. In above example Blocktype is Text, so the Paragraph entity will contain the multiple text lines.
