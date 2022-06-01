@@ -28,7 +28,9 @@ The [General Purpose Optical Character Recognition](https://marketplace.mendix.c
 
 Sample document:
 
-![image](https://user-images.githubusercontent.com/105198284/171385694-d2ad1b77-068d-429e-b850-f598f08b07cb.png)
+![image](https://user-images.githubusercontent.com/105198284/171408053-acedb229-3cf1-48de-87d7-8c3ea41f53ff.png)
+
+
 
 Domain Model:
 
