@@ -33,8 +33,7 @@ Sample document:
 
 Document model for GPO Extraction Result:
 
-![image](https://user-images.githubusercontent.com/105198284/171614629-f07b2f78-a729-4123-8c78-a83f9536f884.png)
-
+![image](https://user-images.githubusercontent.com/105198284/171616037-8a6e9aa9-6db4-4b94-9dd9-eba68c8f416a.png)
 
 
 
