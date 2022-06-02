@@ -33,7 +33,8 @@ Sample document:
 
 Document model for GPO Extraction Result:
 
-![image](https://user-images.githubusercontent.com/105198284/171609556-89568dbe-a5ce-4f61-811c-6aa922475daa.png)
+![image](https://user-images.githubusercontent.com/105198284/171610374-2d52315e-2ac2-4cf2-8404-a893c927590d.png)
+
 
 
 The ExtractionResponse(Entity) will be created automatically for storing the response from the backend API call. The ExtractionResponse entity contains Status(String) and Output(Entity).
